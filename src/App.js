@@ -62,8 +62,10 @@ class App extends React.Component {
     if (this.state.input === "") {
       this.setState({input: this.state.output + val, output: ""});
       return;
+      //eslint-disable-next-line
     } else if (val !== "-" && this.state.input.match(/[+\/*]$/)) {
       this.setState({input: this.state.input.slice(0, -1) + val, output: ""});
+      //eslint-disable-next-line
     } else if (this.state.input.match(/[+\/*\-][+\/*\-]/)) { this.setState({input: this.state.input.slice(0, -2) + val, output: ""});
     } else {
       this.setState({input: this.state.input + val, output: ""});
@@ -74,10 +76,9 @@ class App extends React.Component {
   clear = () => {
     this.setState({input: "", output: "0"});
   }
-  
+
   equals = () => {
     const answer = eval(this.state.input);
-    // const answer = function()
     this.setState({input: "", output: answer});
   }
   
